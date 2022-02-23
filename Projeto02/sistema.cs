@@ -21,4 +21,19 @@ class Sistema {
 
     return aux;
   }
+
+  public static Disciplina DisciplinaListar(int id){
+    //percorrer o vetor das disciplinas e retornar a disciplina com o id informado
+    foreach(Disciplina obj in disciplinas)
+      if(obj != null && obj.GetId() == id) return obj;
+    return null;
+  }
+
+  public static void DisciplinaAtualizar(Disciplina obj){
+    //localizar a especie com o id informado
+    Disciplina aux = DisciplinaListar(obj.GetId());
+    //atualiza a descricao da especie
+    if (aux != null)
+      aux.SetNome(obj.GetNome());
+  }
 }
