@@ -4,16 +4,23 @@ class Program {
   public static void Main() {
     Console.WriteLine("Bem-vindo à biblioteca");
     int op = 0;
-
     do {
-      op = Menu();
-      switch(op) {
-        case 1 : DisciplinaInserir(); break;
-        case 2 : DisciplinaListar(); break;
-        case 3 : DisciplinaAtualizar(); break;
+      try{ 
+        op = Menu();
+        switch(op) {
+          case 1 : DisciplinaInserir(); break;
+          case 2 : DisciplinaListar(); break;
+          case 3 : DisciplinaAtualizar(); break;
+          case 4 : DisciplinaExcluir(); break;
+        }
       }
-    } while(op != 0);
+      catch (Exception erro){
+        op = -1;
+        Console.WriteLine("Erro: " + erro.Message);
+      }
+    } while (op != 0);
   }
+ 
     
   public static int Menu(){
     Console.WriteLine();
@@ -21,6 +28,7 @@ class Program {
     Console.WriteLine("01 - Inserir uma nova disciplina");
     Console.WriteLine("02 - Listar as disciplinas cadastrados");
     Console.WriteLine("03 - Atualizar as disciplinas cadastradas"); 
+    Console.WriteLine("04 - Excluir uma disciplina"); 
     Console.WriteLine("00 - Finalizar o sistema");
     Console.WriteLine("--------------------------------");
     Console.WriteLine("Opção: ");
@@ -57,10 +65,23 @@ class Program {
       int id = int.Parse(Console.ReadLine());
       Console.Write("Informe a nova disciplina: ");
       string nome = Console.ReadLine();
-      //instanciar a classe Especie
+      //instanciar a classe disciplina
       Disciplina obj = new Disciplina(id, nome);
-      //inserir a especie no sistema
+      //inserir a disciplina no sistema
       Sistema.DisciplinaAtualizar(obj);
+      Console.WriteLine("----- Operação realizada com sucesso -----");
+    }
+
+  public static void DisciplinaExcluir(){
+      Console.WriteLine("----- Excluir uma Disciplina -----");
+      //dados da especie;
+      Console.Write("Informe o id da disciplina a ser excluída: ");
+      int id = int.Parse(Console.ReadLine());
+      string descricao = "";
+      //instanciar a classe Especie
+      Disciplina obj = new Disciplina(id, descricao);
+      //inserir a especie no sistema
+      Sistema.DisciplinaExcluir(obj);
       Console.WriteLine("----- Operação realizada com sucesso -----");
     }
 }

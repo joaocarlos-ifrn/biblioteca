@@ -36,4 +36,27 @@ class Sistema {
     if (aux != null)
       aux.SetNome(obj.GetNome());
   }
+
+    public static void DisciplinaExcluir(Disciplina obj){
+    //localizar o índice do objeto no vetor
+    int aux = DisciplinaIndice(obj.GetId());
+    //remove a espécie se o índice for encontrado
+    if (aux != -1){
+      for (int i = aux; i < nDisciplina - 1; i++)
+        disciplinas[i] = disciplinas[i + 1];
+        nDisciplina--;
+      
+    }
+    
+  }
+
+  private static int DisciplinaIndice(int id){
+    //percorrer o vetor com as especies e retornar o indice do elemento com o id informado
+    for (int i = 0; i < nDisciplina; i++){
+      //cada objeto especie no vetor
+      Disciplina obj = disciplinas[i];
+      if (obj.GetId() == id) return i;
+    }
+  return -1;
+  }
 }
