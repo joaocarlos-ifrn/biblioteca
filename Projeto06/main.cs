@@ -96,7 +96,7 @@ class Program {
     Console.Write("Informe o id do livro: ");
     int idLivro = int.Parse(Console.ReadLine());
 
-    Console.WriteLine("----- Listar os serviços cadastrados -----");
+    Console.WriteLine("----- Listar as operações cadastradas -----");
     foreach(Operacao obj in Sistema.OperacaoListar()) 
       Console.WriteLine(obj);
     Console.Write("Informe o id do serviço: ");
