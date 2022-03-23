@@ -55,7 +55,7 @@ class Program {
             case 1 : AlunoListarHorariosDisponiveis(); break;
             case 2 : AlunoAgendarConsulta(); break;
             case 3 : AlunoListarConsultas(); break;
-            case 4 : AlunoListarPets(); break;
+            case 4 : AlunoListarLivros(); break;
             case 99: AlunoLogout(); break;
           }
         }
@@ -124,7 +124,7 @@ class Program {
     Console.WriteLine("------------------------------------------");
   }
   
-  public static void AlunoListarPets(){
+  public static void AlunoListarLivros(){
     Console.WriteLine("----- Meus livros -----");
     foreach(Livro obj in Sistema.LivroListar(alunoLogin)) { 
       Disciplina e = Sistema.DisciplinaListar(obj.GetIdDisciplina());
