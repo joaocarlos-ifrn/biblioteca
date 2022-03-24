@@ -276,15 +276,15 @@ class Program {
     int id = int.Parse(Console.ReadLine());
     Console.Write("Informe o nome: ");
     string nome = Console.ReadLine();
-    Console.Write("Informe a isbn: ");
+    Console.Write("Informe o isbn: ");
     string isbn = Console.ReadLine();
     // Lista as disciplinas
     DisciplinaListar();
-    Console.Write("Informe a id da Disciplina: ");
+    Console.Write("Informe o id da Disciplina: ");
     int idDisciplina = int.Parse(Console.ReadLine());
     // Lista os alunos
     AlunoListar();
-    Console.Write("Informe a id do aluno: ");
+    Console.Write("Informe o id do aluno: ");
     int idAluno = int.Parse(Console.ReadLine());
     // Instanciar a classe Livro
     Livro obj =  new Livro(id, nome, isbn, idDisciplina, idAluno);
@@ -297,7 +297,7 @@ class Program {
     foreach(Livro obj in Sistema.LivroListar()) { 
       Disciplina e = Sistema.DisciplinaListar(obj.GetIdDisciplina());
       Aluno c = Sistema.AlunoListar(obj.GetIdAluno());
-      Console.WriteLine($"{obj} {e.GetDescricao()} {c.Nome}");
+      Console.WriteLine($"{obj} - {e.GetDescricao()} {c.Nome}");
     }
     Console.WriteLine("------------------------------------------");
   }
@@ -312,11 +312,11 @@ class Program {
     string isbn = Console.ReadLine();
     // Lista as disciplinas
     DisciplinaListar();
-    Console.Write("Informe a id da disciplina: ");
+    Console.Write("Informe o id da disciplina: ");
     int idDisciplina = int.Parse(Console.ReadLine());
     // Lista os clientes
     AlunoListar();
-    Console.Write("Informe a id do aluno: ");
+    Console.Write("Informe o id do aluno: ");
     int idAluno = int.Parse(Console.ReadLine());
     // Instanciar a classe Livro
     Livro obj =  new Livro(id, nome, isbn, idDisciplina, idAluno);
